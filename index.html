@@ -1,64 +1,722 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zanzibaba Co. Ltd</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background: #f8f9fa; color: #333; }
-    header { background: #ffffff; padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #ddd; }
-    header img { height: 50px; }
-    .hero { padding: 80px 40px; text-align: center; background: #ffffff; }
-    .hero h1 { font-size: 2.5em; color: #4b2e83; margin-bottom: 10px; }
-    .hero p { font-size: 1.2em; color: #666; }
-    .section { padding: 60px 40px; max-width: 1000px; margin: 0 auto; }
-    .section h2 { color: #4b2e83; margin-bottom: 20px; }
-    .services-grid { display: flex; flex-wrap: wrap; gap: 30px; }
-    .service { background: #fff; padding: 20px; border-radius: 8px; flex: 1 1 250px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
-    .service h3 { color: #f9a825; margin-bottom: 10px; }
-    footer { background: #4b2e83; color: #fff; padding: 40px; text-align: center; }
-    footer a { color: #ffd54f; text-decoration: none; }
-    .contact-btn { display: inline-block; margin-top: 20px; background: #f9a825; color: #fff; padding: 12px 24px; border-radius: 5px; text-decoration: none; font-weight: 600; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zanzibaba - Diversified Business Group in Zanzibar, Tanzania</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1A73E8;
+            --secondary-color: #25b0a9;
+            --accent-color: #FF7F50;
+            --background-color: #faf7f2;
+            --text-color: #14213d;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.africanmeccasafaris.com/wp-content/uploads/matemwebeachhouse4.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .section-heading::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 15px 0;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease-in-out;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            transition: border-color 0.3s ease;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .social-icon {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .desktop-menu {
+                display: none;
+            }
+        }
+        
+        /* Additional styles for PDF export */
+        @media print {
+            body {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            
+            section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <img src="zanzibaba%20logo-03-01.png" alt="Zanzibaba Logo">
-  </header>
+<body class="antialiased">
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary">
+                <span style="color: var(--primary-color)">Zanzi</span><span style="color: var(--accent-color)">baba</span>
+            </a>
+            
+            <nav class="desktop-menu">
+                <ul class="flex space-x-6">
+                    <li><a href="#home" class="nav-link font-medium">Home</a></li>
+                    <li><a href="#digital" class="nav-link font-medium">Digital Solutions</a></li>
+                    <li><a href="#tours" class="nav-link font-medium">Tours</a></li>
+                    <li><a href="#realestate" class="nav-link font-medium">Real Estate</a></li>
+                    <li><a href="#building" class="nav-link font-medium">Building Materials</a></li>
+                    <li><a href="#contact" class="nav-link font-medium">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="md:hidden">
+                <button class="focus:outline-none" id="menu-toggle">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full py-3 shadow-inner">
+            <ul class="container mx-auto px-4 space-y-3">
+                <li><a href="#home" class="block py-1 nav-link font-medium">Home</a></li>
+                <li><a href="#digital" class="block py-1 nav-link font-medium">Digital Solutions</a></li>
+                <li><a href="#tours" class="block py-1 nav-link font-medium">Tours</a></li>
+                <li><a href="#realestate" class="block py-1 nav-link font-medium">Real Estate</a></li>
+                <li><a href="#building" class="block py-1 nav-link font-medium">Building Materials</a></li>
+                <li><a href="#contact" class="block py-1 nav-link font-medium">Contact</a></li>
+            </ul>
+        </div>
+    </header>
 
-  <section class="hero">
-    <h1>Welcome to Zanzibaba Co. Ltd</h1>
-    <p>Your trusted partner in real estate, construction materials, and digital innovation.</p>
-    <a href="https://wa.me/255716002790" class="contact-btn">Chat on WhatsApp</a>
-  </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section h-screen flex items-center pt-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">Welcome to Zanzibaba</h1>
+            <p class="text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto">A diversified business group based in Paje, Zanzibar, offering digital solutions, tourism experiences, real estate services, and building materials.</p>
+            <a href="#contact" class="bg-white text-primary font-medium px-8 py-3 rounded-lg hover:bg-opacity-90 transition duration-300 inline-block mr-4 mb-4 md:mb-0" style="color: var(--primary-color)">Contact Us</a>
+            <a href="#services" class="bg-transparent border-2 border-white text-white font-medium px-8 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition duration-300 inline-block">Our Services</a>
+        </div>
+    </section>
 
-  <section class="section">
-    <h2>Who We Are</h2>
-    <p>Zanzibaba Co. Ltd is a multi-service company based in Zanzibar, Tanzania. We specialize in providing top-quality building materials, connecting clients with prime real estate, and powering digital growth through our agency solutions. With a strong reputation for reliability and innovation, we serve individuals, investors, and businesses locally and internationally.</p>
-  </section>
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap items-center">
+                <div class="w-full lg:w-1/2 mb-10 lg:mb-0">
+                    <h2 class="text-3xl font-bold mb-4 section-heading">About Zanzibaba</h2>
+                    <p class="text-lg mb-6">Based in the beautiful coastal village of Paje in Zanzibar, Tanzania, Zanzibaba is a diversified business group committed to excellence across multiple industries.</p>
+                    <p class="text-lg mb-6">Our mission is to provide professional services and quality products while contributing to the sustainable development of Zanzibar and improving the lives of our community.</p>
+                    <p class="text-lg">With our deep local knowledge and global perspectives, we bridge traditional values with modern innovations to create meaningful solutions for our clients and customers.</p>
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-100 p-6 rounded-lg text-center">
+                            <div class="text-4xl text-center mb-4" style="color: var(--primary-color)">
+                                <i class="fas fa-globe-africa"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Local Expertise</h3>
+                            <p>Deep knowledge of Zanzibar's culture and environment</p>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-lg text-center">
+                            <div class="text-4xl text-center mb-4" style="color: var(--secondary-color)">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Trusted Partner</h3>
+                            <p>Building lasting relationships with our clients</p>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-lg text-center">
+                            <div class="text-4xl text-center mb-4" style="color: var(--accent-color)">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Innovation</h3>
+                            <p>Bringing modern solutions to traditional challenges</p>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-lg text-center">
+                            <div class="text-4xl text-center mb-4" style="color: var(--primary-color)">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Sustainability</h3>
+                            <p>Committed to environmentally responsible practices</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="section">
-    <h2>Our Services</h2>
-    <div class="services-grid">
-      <div class="service">
-        <h3>🏠 Real Estate</h3>
-        <p>Plots for sale, beachfront properties, and development projects tailored for investors, retirees, and families seeking a piece of paradise.</p>
-      </div>
-      <div class="service">
-        <h3>🧱 Building Materials</h3>
-        <p>We deliver cement, sand, timber, gypsum boards, marine boards, roofing sheets, and more — fast and reliably across Zanzibar.</p>
-      </div>
-      <div class="service">
-        <h3>💻 Digital Agency</h3>
-        <p>We build WhatsApp bots, landing pages, online stores, and automate business communications through smart AI-powered solutions.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Digital & Marketing Solutions Section -->
+    <section id="digital" class="py-20" style="background-color: var(--background-color)">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Digital & Marketing Solutions</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto" style="background-color: var(--secondary-color)"></div>
+                <p class="text-lg mt-6 max-w-2xl mx-auto">Comprehensive digital solutions to help your business grow in today's competitive market.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://res.cloudinary.com/jerrick/image/upload/d_642250b563292b35f27461a7.png,f_jpg,fl_progressive,q_auto,w_1024/648bf27f2299a9001d09573b.jpg" alt="Website Development" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Website Development</h3>
+                        <p class="mb-4">Custom-designed websites tailored to your business needs, optimized for all devices and search engines.</p>
+                        <a href="#contact" class="inline-block text-blue-500 font-medium hover:underline" style="color: var(--primary-color)">Learn More <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://weebdigital.com/images/Professional_Website_Creation_Services_Custom_Web_Development_Weeb_Digital.png" alt="Chatbot Creation" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Chatbot Creation</h3>
+                        <p class="mb-4">AI-powered chatbots to enhance customer service and streamline your business operations 24/7.</p>
+                        <a href="#contact" class="inline-block text-blue-500 font-medium hover:underline" style="color: var(--primary-color)">Learn More <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://miro.medium.com/v2/resize:fit:1200/1*Oul8xrAZxzm4XdARI9nVmA.jpeg" alt="Digital Marketing" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Digital Marketing</h3>
+                        <p class="mb-4">Strategic online marketing campaigns to increase visibility, engagement, and conversions for your brand.</p>
+                        <a href="#contact" class="inline-block text-blue-500 font-medium hover:underline" style="color: var(--primary-color)">Learn More <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://leadtoconversion.com/wp-content/uploads/web-design-and-digital-marketing.jpg" alt="Branding Services" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Branding Services</h3>
+                        <p class="mb-4">Complete brand identity development, from logo design to brand strategy and marketing materials.</p>
+                        <a href="#contact" class="inline-block text-blue-500 font-medium hover:underline" style="color: var(--primary-color)">Learn More <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    <p>Contact us at <a href="mailto:info@zanzibaba.online">info@zanzibaba.online</a> or call <a href="tel:+255716002790">+255 716 002 790</a></p>
-    <p>&copy; 2025 Zanzibaba Co. Ltd. All rights reserved.</p>
-  </footer>
+    <!-- Tours Section -->
+    <section id="tours" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Tours & Experiences</h2>
+                <div class="w-24 h-1 mx-auto" style="background-color: var(--accent-color)"></div>
+                <p class="text-lg mt-6 max-w-2xl mx-auto">Discover the beauty and culture of Zanzibar with our curated tour experiences.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://www.africanmeccasafaris.com/wp-content/uploads/mnembaislandlodge1.jpg" alt="Beach Experiences" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Beach Experiences</h3>
+                        <ul class="mb-4 space-y-2">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Pristine white sand beaches</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Snorkeling adventures</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Sunset sailing cruises</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Beach picnics and bonfires</li>
+                        </ul>
+                        <a href="#contact" class="inline-block mt-2 px-6 py-2 rounded-full text-white font-medium transition duration-300" style="background-color: var(--secondary-color)">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.musement.com/cover/0162/47/thumb_16146560_cover_header.jpg" alt="Cultural Tours" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Cultural Tours</h3>
+                        <ul class="mb-4 space-y-2">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Stone Town heritage walks</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Spice plantation tours</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Traditional village visits</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Local cooking classes</li>
+                        </ul>
+                        <a href="#contact" class="inline-block mt-2 px-6 py-2 rounded-full text-white font-medium transition duration-300" style="background-color: var(--secondary-color)">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://admin.safarisolestours.com/storage/blogs/November2024/check-out-prison-island-prison-island-zanzibar.-shooting-with-the-drone.jpg" alt="Adventure Tours" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Adventure Tours</h3>
+                        <ul class="mb-4 space-y-2">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Safari Blue excursions</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Dolphin watching</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Jozani Forest exploration</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Kitesurfing adventures</li>
+                        </ul>
+                        <a href="#contact" class="inline-block mt-2 px-6 py-2 rounded-full text-white font-medium transition duration-300" style="background-color: var(--secondary-color)">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-block px-8 py-3 border-2 rounded-lg font-medium transition duration-300" style="border-color: var(--secondary-color); color: var(--secondary-color)">View All Tours</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Estate Section -->
+    <section id="realestate" class="py-20" style="background-color: var(--background-color)">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Real Estate</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto" style="background-color: var(--primary-color)"></div>
+                <p class="text-lg mt-6 max-w-2xl mx-auto">Discover exclusive properties and investment opportunities in paradise.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://cloudfront-eu-central-1.images.arcpublishing.com/thenational/IKGHSKXIBZCVJBMODFENRJV4KA.jpg" alt="Beachfront Land" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-semibold">Beachfront Land</h3>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full" style="background-color: rgba(26, 115, 232, 0.1); color: var(--primary-color)">For Sale</span>
+                        </div>
+                        <p class="mb-4">Prime beachfront plots with unobstructed ocean views, perfect for private villas or boutique hotels.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="#contact" class="inline-block text-blue-500 font-medium hover:underline" style="color: var(--primary-color)">View Properties <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://cloudfront-eu-central-1.images.arcpublishing.com/thenational/QHG26T2AVBAN5DQTAS3E7TSXFE.jpg" alt="Investment Properties" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-semibold">Investment Properties</h3>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">High ROI</span>
+                        </div>
+                        <p class="mb-4">Income-generating properties including vacation rentals, commercial spaces, and development opportunities.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="#contact" class="inline-block text-blue-500 font-medium hover:underline" style="color: var(--primary-color)">View Properties <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.squarespace-cdn.com/content/v1/651c8363723a932e4a3b4578/f7c22b6d-58b7-4f9f-94e1-7e4251cb275e/DRON+3_D+%281%29+%281%29.jpg" alt="Real Estate Services" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-semibold">Real Estate Services</h3>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Services</span>
+                        </div>
+                        <p class="mb-4">Comprehensive real estate services including property management, legal assistance, and investment consulting.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="#contact" class="inline-block text-blue-500 font-medium hover:underline" style="color: var(--primary-color)">Learn More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-8 rounded-lg shadow-lg mt-12">
+                <div class="flex flex-wrap items-center">
+                    <div class="w-full lg:w-2/3 mb-6 lg:mb-0 lg:pr-10">
+                        <h3 class="text-2xl font-semibold mb-3">Looking for your dream property in Zanzibar?</h3>
+                        <p class="text-lg">Our team of real estate experts is ready to help you find the perfect property that matches your needs and investment goals.</p>
+                    </div>
+                    <div class="w-full lg:w-1/3 text-center lg:text-right">
+                        <a href="#contact" class="inline-block px-8 py-3 rounded-lg text-white font-medium transition duration-300" style="background-color: var(--primary-color)">Schedule a Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Building Materials Section -->
+    <section id="building" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Building Material Supplier</h2>
+                <div class="w-24 h-1 mx-auto" style="background-color: var(--accent-color)"></div>
+                <p class="text-lg mt-6 max-w-2xl mx-auto">Quality construction materials for all your building needs at competitive prices.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="flex flex-col md:flex-row bg-gray-50 rounded-lg overflow-hidden shadow">
+                    <div class="md:w-1/3 h-48 md:h-auto overflow-hidden">
+                        <img src="https://www.ultratechcement.com/content/ultratechcement/in/en/home/for-homebuilders/home-building-explained-single/descriptive-articles/building-materials-used-in-construction/_jcr_content/root/container/container_1646056284/teaser_copy.coreimg.jpeg/1702026227155/building-materials-1.jpeg" alt="Construction Materials" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="text-xl font-semibold mb-3">Core Building Materials</h3>
+                        <ul class="grid grid-cols-2 gap-y-2 gap-x-4">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Premium Cement</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Construction Steel</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Quality Timber</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Building Sand</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Roofing Sheets</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Concrete Blocks</li>
+                        </ul>
+                        <a href="#contact" class="inline-block mt-4 px-6 py-2 rounded-full text-white font-medium transition duration-300" style="background-color: var(--accent-color)">Get a Quote</a>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row bg-gray-50 rounded-lg overflow-hidden shadow">
+                    <div class="md:w-1/3 h-48 md:h-auto overflow-hidden">
+                        <img src="https://structville.com/wp-content/uploads/2020/12/construction-materials.jpg" alt="Construction Materials" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="text-xl font-semibold mb-3">Our Services</h3>
+                        <ul class="mb-4 space-y-2">
+                            <li><i class="fas fa-truck text-blue-500 mr-2"></i> Reliable delivery to your construction site</li>
+                            <li><i class="fas fa-calculator text-blue-500 mr-2"></i> Material quantity estimation assistance</li>
+                            <li><i class="fas fa-tags text-blue-500 mr-2"></i> Competitive wholesale and retail prices</li>
+                            <li><i class="fas fa-handshake text-blue-500 mr-2"></i> Special rates for bulk orders and projects</li>
+                        </ul>
+                        <a href="#contact" class="inline-block mt-2 px-6 py-2 rounded-full text-white font-medium transition duration-300" style="background-color: var(--accent-color)">Contact Sales Team</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gray-100 p-8 rounded-lg">
+                <div class="flex flex-wrap items-center">
+                    <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                        <h3 class="text-2xl font-semibold mb-3">Why Choose Our Materials?</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-certificate mt-1 mr-3" style="color: var(--secondary-color)"></i>
+                                <span>All materials meet industry quality standards</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-certificate mt-1 mr-3" style="color: var(--secondary-color)"></i>
+                                <span>Directly sourced from manufacturers for best pricing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-certificate mt-1 mr-3" style="color: var(--secondary-color)"></i>
+                                <span>Technical advice and support available</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-certificate mt-1 mr-3" style="color: var(--secondary-color)"></i>
+                                <span>Flexible payment terms for large projects</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-full md:w-1/2 md:pl-12">
+                        <div class="bg-white p-6 rounded-lg shadow">
+                            <h4 class="text-xl font-semibold mb-4">Request Material Quote</h4>
+                            <form>
+                                <div class="mb-4">
+                                    <input type="text" placeholder="Material Type" class="w-full px-4 py-2 border rounded-lg focus:outline-none">
+                                </div>
+                                <div class="mb-4">
+                                    <input type="text" placeholder="Quantity Needed" class="w-full px-4 py-2 border rounded-lg focus:outline-none">
+                                </div>
+                                <div class="mb-4">
+                                    <input type="text" placeholder="Delivery Location" class="w-full px-4 py-2 border rounded-lg focus:outline-none">
+                                </div>
+                                <button type="submit" class="w-full py-2 rounded-lg text-white font-medium transition duration-300" style="background-color: var(--primary-color)">Get Quote</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20" style="background-color: var(--background-color)">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto" style="background-color: var(--primary-color)"></div>
+                <p class="text-lg mt-6 max-w-2xl mx-auto">Get in touch with our team for inquiries, quotes, or to discuss how we can help with your project.</p>
+            </div>
+            
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full lg:w-1/2 px-4 mb-10 lg:mb-0">
+                    <div class="bg-white p-8 rounded-lg shadow-lg h-full">
+                        <h3 class="text-2xl font-semibold mb-6">Send Us a Message</h3>
+                        <form class="contact-form">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block mb-2 text-sm font-medium">Name</label>
+                                    <input type="text" class="w-full px-4 py-2 border rounded-lg focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block mb-2 text-sm font-medium">Email</label>
+                                    <input type="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block mb-2 text-sm font-medium">Subject</label>
+                                <input type="text" class="w-full px-4 py-2 border rounded-lg focus:outline-none">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block mb-2 text-sm font-medium">Message</label>
+                                <textarea rows="5" class="w-full px-4 py-2 border rounded-lg focus:outline-none"></textarea>
+                            </div>
+                            <button type="submit" class="px-6 py-3 rounded-lg text-white font-medium transition duration-300" style="background-color: var(--primary-color)">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-1/2 px-4">
+                    <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
+                        <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="text-xl mr-3" style="color: var(--primary-color)"><i class="fas fa-map-marker-alt"></i></span>
+                                <span>Paje, Zanzibar, Tanzania</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-xl mr-3" style="color: var(--primary-color)"><i class="fas fa-phone"></i></span>
+                                <span>+255 716 002 790</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-xl mr-3" style="color: var(--primary-color)"><i class="fas fa-envelope"></i></span>
+                                <a href="mailto:info@zanzibaba.online" class="hover:underline">info@zanzibaba.online</a>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-xl mr-3" style="color: var(--primary-color)"><i class="fas fa-clock"></i></span>
+                                <div>
+                                    <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                    <p>Saturday: 9:00 AM - 1:00 PM</p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-semibold mb-3">Connect With Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="social-icon w-10 h-10 rounded-full flex items-center justify-center text-white" style="background-color: var(--primary-color)">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-icon w-10 h-10 rounded-full flex items-center justify-center text-white" style="background-color: var(--primary-color)">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-icon w-10 h-10 rounded-full flex items-center justify-center text-white" style="background-color: var(--primary-color)">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-semibold mb-6">Our Divisions</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <a href="#digital" class="block p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition duration-300">
+                                <h4 class="font-semibold" style="color: var(--primary-color)">Digital Solutions</h4>
+                            </a>
+                            <a href="#tours" class="block p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition duration-300">
+                                <h4 class="font-semibold" style="color: var(--secondary-color)">Tours</h4>
+                            </a>
+                            <a href="#realestate" class="block p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition duration-300">
+                                <h4 class="font-semibold" style="color: var(--primary-color)">Real Estate</h4>
+                            </a>
+                            <a href="#building" class="block p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition duration-300">
+                                <h4 class="font-semibold" style="color: var(--accent-color)">Building Materials</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/4 mb-10 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-6">
+                        <span style="color: #fff">Zanzi</span><span style="color: var(--accent-color)">baba</span>
+                    </h3>
+                    <p class="mb-4">A diversified business group based in Paje, Zanzibar, Tanzania, committed to excellence and innovation.</p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="social-icon text-white hover:text-gray-300">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="social-icon text-white hover:text-gray-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="social-icon text-white hover:text-gray-300">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/4 mb-10 md:mb-0 md:px-4">
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#digital" class="hover:text-gray-300">Digital Solutions</a></li>
+                        <li><a href="#digital" class="hover:text-gray-300">Website Development</a></li>
+                        <li><a href="#digital" class="hover:text-gray-300">Chatbot Creation</a></li>
+                        <li><a href="#digital" class="hover:text-gray-300">Digital Marketing</a></li>
+                        <li><a href="#digital" class="hover:text-gray-300">Branding</a></li>
+                    </ul>
+                </div>
+                
+                <div class="w-full md:w-1/4 mb-10 md:mb-0 md:px-4">
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-gray-300">Home</a></li>
+                        <li><a href="#about" class="hover:text-gray-300">About Us</a></li>
+                        <li><a href="#tours" class="hover:text-gray-300">Tours</a></li>
+                        <li><a href="#realestate" class="hover:text-gray-300">Real Estate</a></li>
+                        <li><a href="#building" class="hover:text-gray-300">Building Materials</a></li>
+                        <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="w-full md:w-1/4 md:px-4">
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-400"></i>
+                            <span>Paje, Zanzibar, Tanzania</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-3 text-gray-400"></i>
+                            <span>+255 716 002 790</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-gray-400"></i>
+                            <a href="mailto:info@zanzibaba.online" class="hover:underline">info@zanzibaba.online</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2024 Zanzibaba. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Offset for fixed header
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Header Scroll Effect
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+                header.classList.add('bg-white');
+            } else {
+                header.classList.remove('shadow-lg');
+                header.classList.remove('bg-white');
+            }
+        });
+        
+        // Form Submission (prevent default for demo purposes)
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Form submission detected! In a real site, this would send your message to Zanzibaba.');
+            });
+        });
+    </script>
 </body>
 </html>
